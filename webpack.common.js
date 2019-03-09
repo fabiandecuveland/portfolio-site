@@ -3,7 +3,7 @@ const path = require('path');
 module.exports = {
   entry: './src/index.tsx',
   output: {
-      filename: '[name].[hash].js',
+      filename: 'bundle.[hash].js',
       path: path.resolve(__dirname, 'dist')
   },
   module: {

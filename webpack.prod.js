@@ -4,6 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = merge(common, {
     mode: 'production',
@@ -26,12 +27,14 @@ module.exports = merge(common, {
             "style-loader",
             MiniCssExtractPlugin.loader,
             "css-loader",
+            'postcss-loader',
             "sass-loader"
           ]
       },
       ]
     },
     plugins: [
+      new CleanWebpackPlugin(),
       new MiniCssExtractPlugin({
         filename: 'bundle.[contenthash].css',
       }),
