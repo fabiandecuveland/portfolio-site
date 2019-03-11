@@ -1,6 +1,5 @@
 const merge = require('webpack-merge');
 const common = require('./webpack.common');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
@@ -38,11 +37,5 @@ module.exports = merge(common, {
       new MiniCssExtractPlugin({
         filename: 'bundle.[contenthash].css',
       }),
-      new HtmlWebpackPlugin({
-        inject: false,
-        hash: true,
-        template: './src/index.html',
-        filename: 'index.html'
-      })
     ],
 });
